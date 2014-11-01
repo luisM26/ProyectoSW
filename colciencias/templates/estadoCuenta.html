@@ -1,0 +1,64 @@
+
+<!doctype html>
+<html>
+    <head>
+        <title>Estado de cuenta</title>
+    </head>
+    <body>
+        <div>
+            <form action= method="POST">{% csrf_token %}
+                {{form.as_p}}
+                 <label>Seleccione tipo de convenio:</label>
+                 <select name="tipo">
+                        <option selected="selected" value="0">Seleccione tipo</option>
+                        <option value="aporte">Aporte</option>
+                        <option value="derivado">Derivado</option>
+                 </select>
+
+                 <input type="text" size="15" maxlength="30" name="codigo">
+                 <input type= submit name="boton" value="Consultar">
+             </form>
+
+        <div align="center">
+                <h2 style="text-align:center">Estado cuenta</h2>
+        </div>
+
+        <table align="center" style="width:1000px">
+            <thead>
+                <tr>
+                    <th><strong>Fecha inicio:   </th>
+                    <th><strong>Fecha fin: <th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>Valor Transferido: $</td>
+                    <td>Recursos Comprometidos: $</td>
+                </tr>
+                <tr>
+                    <td>Saldo X Transferir: $</td>
+                    <td>Saldo X Comprometer: $</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Saldo por Pagar Sobre Recursos Comprometidos: $</td>
+                </tr>
+                <tr>
+                    <td>Recursos Pagados: $</td>
+                </tr>
+                <tr>
+                    <td>Recursos no Comprometidos: $</td>
+                </tr>
+                <tr>
+                    <td>Recursos no Girados: $</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <footer style="text-align:right">
+            Sistema Integrado Colciencias - 2014
+        </footer>
+    </body>
+</html>

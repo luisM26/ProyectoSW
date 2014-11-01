@@ -36,7 +36,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_extensions'
     'colciencias',
 )
 
@@ -63,7 +62,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'colciencias',
         'USER': 'root',
-        'PASSWORD': '12345',
+        'PASSWORD': 'Borussia',
         'HOST': '',
         'PORT': '3306',
     }

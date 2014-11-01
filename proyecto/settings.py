@@ -62,8 +62,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'colciencias',
         'USER': 'root',
-        'PASSWORD': '12345',
-        'HOST': '',
+        'PASSWORD': 'Borussia',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }

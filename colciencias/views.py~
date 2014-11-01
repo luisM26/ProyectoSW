@@ -1,0 +1,7 @@
+from django.shortcuts import render
+
+# Create your views here.
+from django.core.paginator import paginator, InvalidPage, EmptyPage
+from django.core.urlresolvers import reverse
+from colciencias.models import *
+
