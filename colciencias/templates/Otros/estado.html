@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+	<head>
+        <link type="text/css" rel="stylesheet" href="http://spanish.jotform.com/css/styles/buttons/form-submit-button-  light.css?3.2.4155"/>
+		<title>Estado cuenta</title>
+        <style type="text/css">
+            body {background-color:lightgray}
+        </style>
+	</head>
+	<body>
+		<form id='datos' action='' method='GET'>
+               <!--  {% csrf_token %}
+                {{form.as_p}} -->
+                 <label>Seleccione tipo de convenio:</label>
+                 <select name="tipo">
+                        <option selected="selected" value="0">Seleccione tipo</option>
+                        <option value="aporte">Aporte</option>
+                        <option value="derivado">Derivado</option>
+                 </select>
+
+                 <input type="text" size="15" maxlength="30" name="codigo">
+                 <input type= submit value="Consultar" name='boton'>
+
+        {% if datos %}
+        {% for dato in datos %}
+
+        <div align="center">
+                <h2 style="text-align:center">Estado cuenta</h2>
+        </div>
+
+        <table align="center" style="width:1000px">
+            <thead>
+                <tr>
+                    <th><strong>Fecha inicio: {{ dato.fechaInicio|date:"Y" }}:{{ dato.fechaInicio|date:"m" }}:{{ dato.fechaInicio|date:"j" }}</th>
+                    <th><strong>Fecha fin: {{ dato.fechaFInalizacion|date:"Y" }}:{{ dato.fechaFInalizacion|date:"m" }}:{{ dato.fechaFInalizacion|date:"j" }}<th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>Valor Transferido: $ {{ dato.valorTotal }}</td>
+                    <td>Recursos Comprometidos: ${{ dato.tipoConvenio }}</td>
+                </tr>
+                <tr>
+                    <td>Saldo X Transferir: $ {{ dato.valorTotal }}</td>
+                    <td>Saldo X Comprometer: $ {{ dato.RP }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Saldo por Pagar Sobre Recursos Comprometidos: $</td>
+                </tr>
+                <tr>
+                    <td>Recursos Pagados: $</td>
+                </tr>
+                <tr>
+                    <td>Recursos no Comprometidos: $</td>
+                </tr>
+                <tr>
+                    <td>Recursos no Girados: $</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <form id='pdf' action='' method='GET'>
+            <!--  {% csrf_token %}
+            {{form.as_p}} -->
+            <input type= submit value="Generar PDF" name='boton'>
+        </form>
+
+        <footer style="text-align:right">
+            Sistema Integrado Colciencias - 2014
+        </footer>
+        {% endfor %}
+        {% else %}
+            <script type="text/javascript">
+            alert('El convenio no existe');
+            </script>
+        {% endif %}
+        </form>
+        
+	</body>
+</html>

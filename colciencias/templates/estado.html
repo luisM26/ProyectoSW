@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Estado Cuentas</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{STATIC_URL}}css/logo-nav.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              
+                    <span class="icon-bar"></span>  
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="http://www.ucaldas.edu.co/portal/wp-content/uploads/2014/06/logo_colciencias.jpg /150x50&text=Colciencias" alt="">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#">CDR</a>
+                    </li>
+                    <li>
+                        <a href="#">Otros</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+               
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="{{STATIC_URL}}js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+	<div><form id='datos' action='' method='GET'>
+               <!--  {% csrf_token %}
+                {{form.as_p}} -->
+               <center> <b> <label>Seleccione tipo de convenio:</label></b>
+               <select name="tipo">
+                        <option selected="selected" value="0">Seleccione tipo</option>
+                        <option value="aporte">Aporte</option>
+                        <option value="derivado">Derivado</option>
+                 </select>
+
+                 <input type="text" size="15" maxlength="30" name="codigo">
+                 <input type= submit value="Consultar" name='boton'>
+                </center>
+        {% if datos %}
+        {% for dato in datos %}
+
+        <div align="center">
+                <h2 style="text-align:center">Estado cuenta</h2>
+        </div>
+<center>
+        <table align="center" style="width:1000px">
+            <thead>
+                <tr>
+                   <DIV><br> <th><strong>Fecha inicio: {{ dato.fechaInicio|date:"Y" }}:{{ dato.fechaInicio|date:"m" }}:{{ dato.fechaInicio|date:"j" }}</th>
+                    <th><strong>Fecha fin: {{ dato.fechaFInalizacion|date:"Y" }}:{{ dato.fechaFInalizacion|date:"m" }}:{{ dato.fechaFInalizacion|date:"j" }}<th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>Valor Transferido: $ {{ dato.valorTotal }}</td>
+                    <td>Recursos Comprometidos: ${{ dato.tipoConvenio }}</td>
+                </tr>
+                <tr>
+                    <td>Saldo X Transferir: $ {{ dato.valorTotal }}</td>
+                    <td>Saldo X Comprometer: $ {{ dato.RP }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Saldo por Pagar Sobre Recursos Comprometidos: $</td>
+                </tr>
+                <tr>
+                    <td>Recursos Pagados: $</td>
+                </tr>
+                <tr>
+                    <td>Recursos no Comprometidos: $</td>
+                </tr>
+                <tr>
+                    <td>Recursos no Girados: $</td>
+                </tr>
+                </DIV>
+            </tbody>
+        </table>
+    </center>
+        
+      <DIV ALIGN=right>  <form id='pdf' action='' method='GET'>
+            <!--  {% csrf_token %}
+            {{form.as_p}} -->
+            <input type= submit value="Generar PDF" name='boton'> </DIV>
+        </form>
+</div>
+        <footer style="text-align:right">
+        <center><h3><b>Sistema Integrado Colciencias - 2014</center></h3>
+        </footer>
+        {% endfor %}
+        {% else %}
+            <script type="text/javascript">
+            alert('El convenio no existe');
+            </script>
+        {% endif %}
+        </form>
+</body>
+
+</html>

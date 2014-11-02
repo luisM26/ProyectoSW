@@ -8,7 +8,11 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
   #  url((r'^estado/','colciencias.views.inicio')),
-     url(r'^convenios/$','colciencias.views.inicio'),
+ 	url(r'^estado/$', 'colciencias.views.busqueda'),
+ 	url(r'^CDR/$', 'colciencias.views.cdr'),
+ 	url(r'^Registros/$', 'colciencias.views.Consultacdr'),
+ 	
+   # url(r'^CDR/$','colciencias.views.cdrs'),
 )
 
 

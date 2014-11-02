@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Estado de cuenta</title>
+    </head>
+    <body>
+        <div>
+            <form id='datos' action='' method='GET'>
+               <!--  {% csrf_token %}
+                {{form.as_p}} -->
+                 <label>Seleccione tipo de convenio:</label>
+                 <select name="tipo">
+                        <option selected="selected" value="0">Seleccione tipo</option>
+                        <option value="aporte">Aporte</option>
+                        <option value="derivado">Derivado</option>
+                 </select>
+
+                 <input type="text" size="15" maxlength="30" name="codigo">
+                 <input type= submit value="Consultar">
+            </form>
+            
+    </body>
+</html>

@@ -1,0 +1,11 @@
+from django.template import Template
+
+<h2>{{Convenio.nombre}}</h2>
+<em>CDR - Proyecto</em>
+<ul>
+      {% for Proyecto in object_list %}
+        <li>{{ Proyecto.CDR }} - {{ Proyecto.estado }} </li>
+      {% endfor %}
+</ul>
+ 
+<h2>Añadir persona</h2>

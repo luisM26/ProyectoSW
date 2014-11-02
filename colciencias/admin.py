@@ -1,9 +1,23 @@
 from django.contrib import admin
 from colciencias.models import *
 
+
+class OrganizacionAdmin (admin.ModelAdmin):
+    list_display = ('ID', 'nombre', 'NIT')
+    search_fields = ('nombre',) 
+
+ 
+
+class ConvenioAdmin (admin.ModelAdmin):
+    list_display = ('numConvenio', 'nombre', 'tipoConvenio')
+    search_fields = ('nombre',) 
+
+
+
+
 admin.site.register(ProyectoInversion)
-admin.site.register(Convenio)
-admin.site.register(Organizacion)
+admin.site.register(Convenio,ConvenioAdmin)
+admin.site.register(Organizacion,OrganizacionAdmin)
 admin.site.register(Aporte)
 admin.site.register(Becario)
 admin.site.register(Seguimiento)
@@ -15,4 +29,4 @@ admin.site.register(Notificacion)
 admin.site.register(Notificacion_Proyecto)
 admin.site.register(Notificacion_Convenio)
 
-
+	
