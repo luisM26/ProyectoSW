@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'colciencias',
-    'django_jenkins',
+  #  'django_jenkins',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -88,11 +88,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-PROJECT_APPS = ['colciencias']
+#PROJECT_APPS = ['colciencias']
 
-JENKINS_TASKS = (
-    'django_jenkins.tasks.run_pep8',
-    'django_jenkins.tasks.run_jshint',
-)
+#JENKINS_TASKS = (
+ #   'django_jenkins.tasks.run_pep8',
+  #  'django_jenkins.tasks.run_jshint',
+#)
 
 #PEP8_RCFILE = 'project/pep8.rc'
