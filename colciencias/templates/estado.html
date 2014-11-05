@@ -34,12 +34,12 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
               
-                    <span class="icon-bar"></span>  
+                    <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                    <img src="http://www.ucaldas.edu.co/portal/wp-content/uploads/2014/06/logo_colciencias.jpg /150x50&text=Colciencias" alt="">
+                    <img src="http://placehold.it/150x50&text=Logo" alt="">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -76,9 +76,9 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
-	<div><form id='datos' action='' method='GET'>
-               <!--  {% csrf_token %}
-                {{form.as_p}} -->
+	<div><form id='datos' action='' method='POST'>
+                {% csrf_token %}
+                {{form.as_p}}
                <center> <b> <label>Seleccione tipo de convenio:</label></b>
                <select name="tipo">
                         <option selected="selected" value="0">Seleccione tipo</option>
@@ -90,8 +90,7 @@
                  <input type= submit value="Consultar" name='boton'>
                 </center>
         {% if datos %}
-        {% for dato in datos %}
-
+        {% if datos.transferidoColciencias = 0 %}
         <div align="center">
                 <h2 style="text-align:center">Estado cuenta</h2>
         </div>
@@ -99,32 +98,34 @@
         <table align="center" style="width:1000px">
             <thead>
                 <tr>
-                   <DIV><br> <th><strong>Fecha inicio: {{ dato.fechaInicio|date:"Y" }}:{{ dato.fechaInicio|date:"m" }}:{{ dato.fechaInicio|date:"j" }}</th>
-                    <th><strong>Fecha fin: {{ dato.fechaFInalizacion|date:"Y" }}:{{ dato.fechaFInalizacion|date:"m" }}:{{ dato.fechaFInalizacion|date:"j" }}<th>
+                    
+                   <DIV><br> <th><strong>Fecha inicio: {{ convenios.fechaInicio|date:"Y" }}:{{ convenios.fechaInicio|date:"m" }}:{{ convenios.fechaInicio|date:"j" }}</th>
+                    <th><strong>Fecha fin: {{ convenios.fechaFInalizacion|date:"Y" }}:{{ convenios.fechaFInalizacion|date:"m" }}:{{ convenios.fechaFInalizacion|date:"j" }}<th>
+                    
                 </tr>
             </thead>
             <tbody>
                 
                 <tr>
-                    <td>Valor Transferido: $ {{ dato.valorTotal }}</td>
-                    <td>Recursos Comprometidos: ${{ dato.tipoConvenio }}</td>
+                    <td>Valor Transferido: $ {{ datos.transferido }}</td>
+                    <td>Recursos Comprometidos: $ {{ datos.comprometidos }}</td>
                 </tr>
                 <tr>
-                    <td>Saldo X Transferir: $ {{ dato.valorTotal }}</td>
-                    <td>Saldo X Comprometer: $ {{ dato.RP }}</td>
+                    <td>Saldo X Transferir: $ {{ datos.transferir }}</td>
+                    <td>Saldo X Comprometer: $ {{ datos.comprometer }}</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td>Saldo por Pagar Sobre Recursos Comprometidos: $</td>
+                    <td>Saldo por Pagar Sobre Recursos Comprometidos: $ {{ datos.porPagar }}</td>
                 </tr>
                 <tr>
-                    <td>Recursos Pagados: $</td>
+                    <td>Recursos Pagados: $ {{ datos.pagados }}</td>
                 </tr>
                 <tr>
-                    <td>Recursos no Comprometidos: $</td>
+                    <td>Recursos no Comprometidos: $ {{ datos.noComprometidos }}</td>
                 </tr>
                 <tr>
-                    <td>Recursos no Girados: $</td>
+                    <td>Recursos no Girados: $ {{ datos.noGirados }}</td>
                 </tr>
                 </DIV>
             </tbody>
@@ -140,8 +141,67 @@
         <footer style="text-align:right">
         <center><h3><b>Sistema Integrado Colciencias - 2014</center></h3>
         </footer>
-        {% endfor %}
+       
         {% else %}
+         <div align="center">
+                <h2 style="text-align:center">Estado cuenta</h2>
+        </div>
+<center>
+        <table align="center" style="width:1000px">
+            <thead>
+                <tr>                    
+                   <DIV><br> <th><strong>Fecha inicio: {{ convenios.fechaInicio|date:"Y" }}:{{ convenios.fechaInicio|date:"m" }}:{{ convenios.fechaInicio|date:"j" }}</th>
+                    <th><strong>Fecha fin: {{ convenios.fechaFInalizacion|date:"Y" }}:{{ convenios.fechaFInalizacion|date:"m" }}:{{ convenios.fechaFInalizacion|date:"j" }}<th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>Valor Transferido X Colciencias: $ {{ datos.transferidoColciencias }}</td>
+                    <td>Recursos Comprometidos: $ {{ datos.comprometidos }}</td>
+                </tr>
+                <tr>
+                    <td>Saldo X Transferir Colciencias: $ {{ datos.transferirColciencias }}</td>
+                    <td>Saldo X Comprometer: $ {{ datos.comprometer }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Saldo por Pagar Sobre Recursos Comprometidos: $ {{ datos.porPagar }}</td>
+                </tr>
+                <tr>
+                    <td>Valor transferido X Otras Entidades: $ {{ datos.transferidoOtrasEntidades }}</td>
+                </tr>
+                <tr>
+                    <td>Saldo de giros por recibir de otras entidades: $ {{ datos.girosOtrasEntidades }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Recursos Pagados: $ {{ datos.pagados }}</td>
+                </tr>
+                <tr>
+                    <td>Total valor recursos transferidos: $ {{ datos.noComprometidos }}</td>
+                    <td>Recursos No Comprometidos: $ {{ datos.noComprometidos }}</td>
+                </tr>
+                <tr>
+                    <td>Total valor saldo por transferir: $ {{ datos.noComprometidos }}</td>
+                    <td>Recursos No Girados: $ {{ datos.pagados }}</td>
+                </tr>
+                </DIV>
+            </tbody>
+        </table>
+    </center>
+        
+      <DIV ALIGN=right>  <form id='pdf' action='' method='GET'>
+            <!--  {% csrf_token %}
+            {{form.as_p}} -->
+            <input type= submit value="Generar PDF" name='boton'> </DIV>
+        </form>
+</div>
+        <footer style="text-align:right">
+        <center><h3><b>Sistema Integrado Colciencias - 2014</center></h3>
+        </footer>
+        {% endif %}
+         {% else %}
             <script type="text/javascript">
             alert('El convenio no existe');
             </script>

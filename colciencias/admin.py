@@ -28,5 +28,7 @@ admin.site.register(Anexo)
 admin.site.register(Notificacion)
 admin.site.register(Notificacion_Proyecto)
 admin.site.register(Notificacion_Convenio)
-
+admin.site.register(Estado)
+admin.site.register(TransferenciasSiif)
+admin.site.register(ProgramacionPago)
 	

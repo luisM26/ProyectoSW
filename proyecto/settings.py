@@ -50,6 +50,15 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+PROJECT_APPS = ['colciencias']
+
+JENKINS_TASKS = (
+    'django_jenkins.tasks.run_pep8',
+    'django_jenkins.tasks.run_jshint',
+)
+
+PEP8_RCFILE = 'proyecto/pep8.rc'
+
 ROOT_URLCONF = 'proyecto.urls'
 
 WSGI_APPLICATION = 'proyecto.wsgi.application'

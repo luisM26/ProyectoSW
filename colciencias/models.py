@@ -2,19 +2,35 @@ from django.db import models
 from django.contrib import admin
 
 
-
-
 class ProyectoInversion(models.Model):
     ID = models.CharField(max_length=20 , primary_key=True)
     recursos = models.CharField(max_length=100)
     metas = models.TextField()
     vigencia = models.CharField(max_length=10)
-    def __str__(self):
-        return self.ID 
-
-            
     #def __init__(self):
         #super(proyectoInversion, self).__init__()
+        #
+
+class TransferenciasSiif(models.Model):
+    ID = models.CharField(max_length=30 , primary_key=True)
+    convenio = models.CharField(max_length=30)
+    fecha = models.DateField()
+    valorTransferencia = models.FloatField()
+    autoridad = models.CharField(max_length=30)
+    entidad = models.CharField(max_length=30)
+     #def __init__(self):
+        #super(siif, self).__init__()
+        #
+
+class ProgramacionPago(models.Model):
+    ID = models.CharField(max_length=30 , primary_key=True)
+    convenio = models.CharField(max_length=30)
+    fecha = models.DateField()
+    valorTransferencia = models.FloatField()
+    autoridad = models.CharField(max_length=30)
+    entidad = models.CharField(max_length=30)
+     #def __init__(self):
+        #super(siif, self).__init__()
         #
 
 class Convenio(models.Model):
@@ -32,14 +48,8 @@ class Convenio(models.Model):
     supervisor = models.CharField(max_length=100)
     plazo = models.DateField()
     objeto = models.CharField(max_length=100)
-
     #def __init__(self):
         #super(Convenio, self).__init__()
-    def __str__(self):
-        
-           return self.nombre
-
-
         #
 
 class Organizacion(models.Model):
@@ -47,8 +57,6 @@ class Organizacion(models.Model):
     nombre = models.CharField(max_length=100)
     NIT = models .CharField(max_length=20)
     convenio_FK = models.ForeignKey(Convenio)
-    def __str__(self):
-        return self.nombre
     #def __init__(self):
         #super(organizacion, self).__init__()
         #
@@ -61,8 +69,6 @@ class Aporte(models.Model):
     esProgramado = models.CharField(max_length=10)
     organizacion_FK = models.ForeignKey(Organizacion , null=True)
     convenio_FK = models.ForeignKey(Convenio)
-    def __str__(self):
-        return self.ID
     #def __init__(self):
         #super(Aporte, self).__init__()
         #
@@ -75,8 +81,6 @@ class Becario(models.Model):
     informacionBecario = models.TextField()
     informacionTesis = models.TextField()
     convenio_FK = models.ForeignKey(Convenio)
-    def __str__(self):
-        return self.nombre
     #def __init__(self):
         #super(Becario, self).__init__()
         #
@@ -87,8 +91,6 @@ class Seguimiento(models.Model):
     semestre = models.IntegerField()
     valorMatricula = models.FloatField()
     NumMatriculasAprobadas = models.IntegerField()
-    def __str__(self):
-        return self.fecha
     #def __init__(self):
         #super(Seguimiento, self).__init__()
         #
@@ -102,8 +104,6 @@ class Desembolso(models.Model):
     condiciones = models.TextField()
     organizacion_FK = models.ForeignKey(Organizacion , null=True)
     becario_FK = models.ForeignKey(Becario)
-    def __str__(self):
-        return self.ID
     #def __init__(self):
         #super(Desembolso, self).__init__()
         #
@@ -119,14 +119,6 @@ class Proyecto(models.Model):
     justificacionEstado = models.TextField()
     convenio_FK = models.ForeignKey(Convenio)
     desembolso_FK = models.ForeignKey(Desembolso)
-
-    class Admin:
-        list_display = ('ID', 'duracion', 'titulo')
-        list_filter = ('ID', 'duracion')
-        search_fields = ('Titulo')
-    def __str__(self):
-        return self.titulo    
-
     #def __init__(self):
         #super(Proyecto, self).__init__()
         #
@@ -137,8 +129,6 @@ class Novedad(models.Model):
     estado = models.CharField(max_length=20)
     convenio_FK = models.ForeignKey(Convenio , null=True)
     proyecto_FK = models.ForeignKey(Proyecto , null=True)
-    def __str__(self):
-        return self.ID
     #def __init__(self):
         #super(Novedad, self).__init__()
         #
@@ -151,8 +141,6 @@ class Anexo(models.Model):
     desembolso_FK = models.ForeignKey(Desembolso , null=True)
     convenio_FK = models.ForeignKey(Convenio , null=True)
     proyecto_FK = models.ForeignKey(Proyecto , null=True)
-    def __str__(self):
-        return self.ID
     #def __init__(self):
         #super(Anexo, self).__init__()
         #
@@ -160,8 +148,6 @@ class Anexo(models.Model):
 
 class Notificacion(models.Model):
     ID = models.CharField(max_length=30 , primary_key=True)
-    def __str__(self):
-        return self.ID
     #def __init__(self):
         #super(Notificacion, self).__init__()
         #
@@ -172,8 +158,6 @@ class Notificacion_Proyecto(models.Model):
     mensaje = models.TextField()
     notificacion_FK = models.ForeignKey(Notificacion)
     proyecto_FK = models.ForeignKey(Proyecto)
-    def __str__(self):
-        return self.ID
     #def __init__(self):
         #super(Notificacion_Proyecto, self).__init__()
         #
@@ -184,8 +168,24 @@ class Notificacion_Convenio(models.Model):
     mensaje = models.TextField()
     notificacion_FK = models.ForeignKey(Notificacion)
     convenio_FK = models.ForeignKey(Convenio)
-    def __str__(self):
-        return self.ID
     #def __init__(self):
         #super(Notificacion_Proyecto, self).__init__()
+        #
+class Estado(models.Model):
+    ID = models.CharField(max_length=30 , primary_key=True)
+    convenio = models.CharField(max_length=30) 
+    transferido = models.FloatField()
+    transferir = models.FloatField()
+    pagados = models.FloatField()
+    noComprometidos = models.FloatField()
+    noGirados = models.FloatField()
+    comprometidos = models.FloatField()
+    comprometer = models.FloatField()
+    porPagar = models.FloatField()
+    transferidoColciencias = models.FloatField()
+    transferirColciencias = models.FloatField()
+    transferidoOtrasEntidades = models.FloatField()
+    girosOtrasEntidades = models.FloatField()
+    #def __init__(self):
+        #super(estado, self).__init__()
         #

@@ -11,7 +11,7 @@ urlpatterns = patterns('',
  	url(r'^estado/$', 'colciencias.views.busqueda'),
  	url(r'^CDR/$', 'colciencias.views.cdr'),
  	url(r'^Registros/$', 'colciencias.views.Consultacdr'),
- 	
+ 	 url(r'^verificarTransferencias/$',verificarTransferencias),
    # url(r'^CDR/$','colciencias.views.cdrs'),
 )
 
