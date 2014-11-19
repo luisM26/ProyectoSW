@@ -1,0 +1,464 @@
+************* Module –reports=n
+F:  1,0: No module named –reports=n
+************* Module –include-ids=y
+F:  1,0: No module named –include-ids=y
+************* Module –disable=C0111
+F:  1,0: No module named –disable=C0111
+************* Module admin
+C:  1,0: Missing docstring
+F:  2,0: Unable to import 'colciencias.models'
+C:  4,0:OrganizacionAdmin: Missing docstring
+R:  4,0:OrganizacionAdmin: Too many public methods (70/20)
+C: 10,0:ConvenioAdmin: Missing docstring
+R: 10,0:ConvenioAdmin: Too many public methods (70/20)
+E: 17,20: Undefined variable 'ProyectoInversion'
+C: 18,0: Comma not followed by a space
+admin.site.register(Convenio,ConvenioAdmin)
+                            ^^
+E: 18,20: Undefined variable 'Convenio'
+C: 19,0: Comma not followed by a space
+admin.site.register(Organizacion,OrganizacionAdmin)
+                                ^^
+E: 19,20: Undefined variable 'Organizacion'
+E: 20,20: Undefined variable 'Aporte'
+E: 21,20: Undefined variable 'Becario'
+E: 22,20: Undefined variable 'Seguimiento'
+E: 23,20: Undefined variable 'Desembolso'
+E: 24,20: Undefined variable 'Proyecto'
+E: 25,20: Undefined variable 'Novedad'
+E: 26,20: Undefined variable 'Anexo'
+E: 27,20: Undefined variable 'Notificacion'
+E: 28,20: Undefined variable 'Notificacion_Proyecto'
+E: 29,20: Undefined variable 'Notificacion_Convenio'
+E: 30,20: Undefined variable 'Estado'
+E: 31,20: Undefined variable 'TransferenciasSiif'
+E: 32,20: Undefined variable 'ProgramacionPago'
+************* Module forms
+C:  1,0: Missing docstring
+************* Module __init__
+C:  1,0: Missing docstring
+************* Module models
+C:  1,0: Missing docstring
+C:  3,0:ProyectoInversion: Missing docstring
+C: 12,0:TransferenciasSiif: Missing docstring
+C: 23,0:ProgramacionPago: Missing docstring
+C: 34,0:Convenio: Missing docstring
+C: 53,0:Organizacion: Missing docstring
+C: 62,0:Aporte: Missing docstring
+C: 74,0:Becario: Missing docstring
+C: 86,0:Seguimiento: Missing docstring
+C: 96,0:Desembolso: Missing docstring
+C:109,0:Proyecto: Missing docstring
+C:124,0:Novedad: Missing docstring
+C:134,0:Anexo: Missing docstring
+C:147,0:Notificacion: Missing docstring
+C:153,0:Notificacion_Proyecto: Invalid name "Notificacion_Proyecto" (should match [A-Z_][a-zA-Z0-9]+$)
+C:153,0:Notificacion_Proyecto: Missing docstring
+C:163,0:Notificacion_Convenio: Invalid name "Notificacion_Convenio" (should match [A-Z_][a-zA-Z0-9]+$)
+C:163,0:Notificacion_Convenio: Missing docstring
+C:172,0:Estado: Missing docstring
+************* Module tests
+W:  9,0: Found indentation with tabs instead of spaces
+W: 10,0: Found indentation with tabs instead of spaces
+W: 38,0: Found indentation with tabs instead of spaces
+W: 39,0: Found indentation with tabs instead of spaces
+W: 40,0: Found indentation with tabs instead of spaces
+W: 41,0: Found indentation with tabs instead of spaces
+W: 42,0: Found indentation with tabs instead of spaces
+W: 43,0: Found indentation with tabs instead of spaces
+W: 44,0: Found indentation with tabs instead of spaces
+W: 46,0: Found indentation with tabs instead of spaces
+W: 47,0: Found indentation with tabs instead of spaces
+C:  1,0: Missing docstring
+F:  2,0: Unable to import 'colciencias.models'
+C:  7,0:colcienciasTest: Invalid name "colcienciasTest" (should match [A-Z_][a-zA-Z0-9]+$)
+C:  7,0:colcienciasTest: Missing docstring
+C:  9,1:colcienciasTest.setUp: Invalid name "setUp" (should match [a-z_][a-z0-9_]{2,30}$)
+C: 38,1:colcienciasTest.testVerificarTransferencia: Invalid name "testVerificarTransferencia" (should match [a-z_][a-z0-9_]{2,30}$)
+C: 38,1:colcienciasTest.testVerificarTransferencia: Missing docstring
+E: 44,19:colcienciasTest.testVerificarTransferencia: Instance of 'WSGIRequest' has no 'status_code' member (but some types could not be inferred)
+C: 46,1:colcienciasTest.tearDown: Invalid name "tearDown" (should match [a-z_][a-z0-9_]{2,30}$)
+W: 47,2:colcienciasTest.tearDown: Statement seems to have no effect
+R:  7,0:colcienciasTest: Too many public methods (66/20)
+W:  4,0: Unused import reverse
+W:  5,0: Unused import Select
+************* Module urls
+C: 13,0: Line too long (82/80)
+C:  1,0: Missing docstring
+F:  3,0: Unable to import 'colciencias.views'
+C:  5,0: Invalid name "urlpatterns" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+************* Module views
+C: 30,0: Line too long (88/80)
+C: 32,0: Line too long (90/80)
+C: 35,0: Line too long (87/80)
+C: 36,0: Line too long (89/80)
+C: 37,0: Line too long (82/80)
+C: 38,0: Line too long (136/80)
+C: 41,0: Line too long (115/80)
+C: 46,0: Line too long (87/80)
+C: 52,0: Line too long (81/80)
+C: 53,0: Line too long (85/80)
+C: 56,0: Line too long (82/80)
+C: 83,0: Line too long (92/80)
+C: 91,0: Line too long (93/80)
+C: 94,0: Line too long (83/80)
+C: 95,0: Line too long (89/80)
+C:123,0: Line too long (88/80)
+C:132,0: Line too long (103/80)
+C:148,0: Line too long (123/80)
+C:158,0: Line too long (107/80)
+C:160,0: Line too long (88/80)
+C:162,0: Line too long (101/80)
+C:163,0: Line too long (114/80)
+C:166,0: Line too long (83/80)
+W:166,0: Bad indentation. Found 16 spaces, expected 12
+C:171,0: Line too long (87/80)
+C:177,0: Line too long (81/80)
+C:185,0: Line too long (106/80)
+W:188,0: Bad indentation. Found 12 spaces, expected 4
+C:189,0: Line too long (98/80)
+W:189,0: Bad indentation. Found 12 spaces, expected 4
+C:192,0: Line too long (87/80)
+C:  1,0: Missing docstring
+F:  5,0: Unable to import 'colciencias.models'
+F: 10,0: Unable to import 'colciencias.forms'
+C: 18,0: Invalid name "codigo" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+C: 19,0: Invalid name "tipo" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+C: 23,0:busqueda: Missing docstring
+W: 26,12:busqueda: Using the global statement
+W: 28,12:busqueda: Using the global statement
+E: 30,22:busqueda: Undefined variable 'Convenio'
+E: 32,27:busqueda: Undefined variable 'Convenio'
+E: 33,24:busqueda: Undefined variable 'Estado'
+C: 38,16:busqueda: Comma not followed by a space
+                return render_to_response('estado.html',{'datos':datos,'convenios':convenio},context_instance = RequestContext(request))
+                                                       ^^
+C: 41,16:busqueda: Comma not followed by a space
+                return render_to_response('estado.html',{'datos':datos},context_instance = RequestContext(request))
+                                                       ^^
+C: 49,12:busqueda: Invalid name "p" (should match [a-z_][a-z0-9_]{2,30}$)
+E: 53,23:busqueda: Undefined variable 'Convenio'
+E: 54,20:busqueda: Undefined variable 'Estado'
+C: 56,12:busqueda: Comma not followed by a space
+            p.drawImage(imagen + "/Imagenes/logo.png",50,750,width=200, height=50)
+                                                     ^^
+C: 62,12:busqueda: Comma not followed by a space
+            p.drawString(50,660, "Numero de Convenio: ")
+                           ^^
+C: 63,12:busqueda: Comma not followed by a space
+            p.drawString(170,660, convenio.numConvenio)
+                            ^^
+C: 66,12:busqueda: Comma not followed by a space
+            p.drawString(50,640, "Nombre del Convenio: ")
+                           ^^
+C: 67,12:busqueda: Comma not followed by a space
+            p.drawString(173,640, convenio.nombre)
+                            ^^
+C: 70,12:busqueda: Comma not followed by a space
+            p.drawString(50,620, "Fecha Inicio: $")
+                           ^^
+C: 71,12:busqueda: Comma not followed by a space
+            p.drawString(132,620, str(convenio.fechaInicio))
+                            ^^
+C: 74,12:busqueda: Comma not followed by a space
+            p.drawString(50,600, "Fecha Fin: $")
+                           ^^
+C: 75,12:busqueda: Comma not followed by a space
+            p.drawString(120,600, str(convenio.fechaFInalizacion))
+                            ^^
+C: 78,12:busqueda: Comma not followed by a space
+            p.drawString(50,580, "Valor Transferido: $")
+                           ^^
+C: 79,12:busqueda: Comma not followed by a space
+            p.drawString(160,580, str(convenio.valorTotal))
+                            ^^
+C: 82,12:busqueda: Comma not followed by a space
+            p.drawString(50,560, "Saldo Por Transferir: $")
+                           ^^
+C: 83,12:busqueda: Comma not followed by a space
+            p.drawString(175,560, str(float(datos.transferir) - float(convenio.valorTotal)))
+                            ^^
+C: 86,12:busqueda: Comma not followed by a space
+            p.drawString(50,540, "Recursos Comprometidos: $")
+                           ^^
+C: 87,12:busqueda: Comma not followed by a space
+            p.drawString(204,540, str(datos.comprometidos))
+                            ^^
+C: 90,12:busqueda: Comma not followed by a space
+            p.drawString(50,520, "Saldo Por Comprometer: $")
+                           ^^
+C: 91,12:busqueda: Comma not followed by a space
+            p.drawString(195,520, str(float(datos.comprometer) - float(convenio.valorTotal)))
+                            ^^
+C: 94,12:busqueda: Comma not followed by a space
+            p.drawString(50,500, "Saldo Por Pagar Sobre Recursos Comprometidos: $")
+                           ^^
+C: 95,12:busqueda: Comma not followed by a space
+            p.drawString(330,500, str(float(datos.comprometidos) - float(datos.pagados)))
+                            ^^
+C: 98,12:busqueda: Comma not followed by a space
+            p.drawString(50,480, "Recursos Pagados: $")
+                           ^^
+C: 99,12:busqueda: Comma not followed by a space
+            p.drawString(170,480, str(datos.pagados))
+                            ^^
+C:102,12:busqueda: Comma not followed by a space
+            p.drawString(50,460, "Recursos No Comprometidos: $")
+                           ^^
+C:103,12:busqueda: Comma not followed by a space
+            p.drawString(225,460, str(datos.noComprometidos))
+                            ^^
+C:106,12:busqueda: Comma not followed by a space
+            p.drawString(50,440, "Recursos No Girados: $")
+                           ^^
+C:107,12:busqueda: Comma not followed by a space
+            p.drawString(180,440, str(datos.noGirados))
+                            ^^
+C:111,16:busqueda: Comma not followed by a space
+                p.drawString(50,400, "Valor Transferido Por Colciencias: $")
+                               ^^
+C:112,16:busqueda: Comma not followed by a space
+                p.drawString(245,400, str(datos.transferidoColciencias))
+                                ^^
+E:112,42:busqueda: Instance of 'dict' has no 'transferidoColciencias' member (but some types could not be inferred)
+C:115,16:busqueda: Comma not followed by a space
+                p.drawString(50,380, "Saldo Por Transferir Colciencias: $")
+                               ^^
+C:116,16:busqueda: Comma not followed by a space
+                p.drawString(240,380, str(datos.transferirColciencias))
+                                ^^
+E:116,42:busqueda: Instance of 'dict' has no 'transferirColciencias' member (but some types could not be inferred)
+C:119,16:busqueda: Comma not followed by a space
+                p.drawString(50,360, "Valor Transferido Por Otras Entidades: $")
+                               ^^
+C:120,16:busqueda: Comma not followed by a space
+                p.drawString(270,360, str(datos.transferidoOtrasEntidades))
+                                ^^
+E:120,42:busqueda: Instance of 'dict' has no 'transferidoOtrasEntidades' member (but some types could not be inferred)
+C:123,16:busqueda: Comma not followed by a space
+                p.drawString(50,340, "Saldo De Giros Por Recibir De Otras Entidades: $")
+                               ^^
+C:124,16:busqueda: Comma not followed by a space
+                p.drawString(320,340, str(datos.girosOtrasEntidades))
+                                ^^
+E:124,42:busqueda: Instance of 'dict' has no 'girosOtrasEntidades' member (but some types could not be inferred)
+C:132,4:busqueda: Comma not followed by a space
+    return render_to_response('estado.html',{'datos':datos},context_instance = RequestContext(request))
+                                           ^^
+R: 23,0:busqueda: Too many statements (79/50)
+W:138,8:verificarTransferencias: Redefining name 'codigo' from outer scope (line 18)
+C:134,0:verificarTransferencias: Invalid name "verificarTransferencias" (should match [a-z_][a-z0-9_]{2,30}$)
+C:134,0:verificarTransferencias: Missing docstring
+C:140,12:verificarTransferencias: Invalid name "validarSiif" (should match [a-z_][a-z0-9_]{2,30}$)
+E:140,26:verificarTransferencias: Undefined variable 'TransferenciasSiif'
+E:142,23:verificarTransferencias: Undefined variable 'TransferenciasSiif'
+C:144,12:verificarTransferencias: Invalid name "validarPago" (should match [a-z_][a-z0-9_]{2,30}$)
+E:144,26:verificarTransferencias: Undefined variable 'ProgramacionPago'
+E:146,24:verificarTransferencias: Undefined variable 'ProgramacionPago'
+C:148,4:verificarTransferencias: Comma not followed by a space
+    return render_to_response('transferencias.html',{'pagos':pagos,'siif':siif},context_instance = RequestContext(request))
+                                                   ^^
+W:155,12:cdr: Redefining name 'tipo' from outer scope (line 19)
+W:156,12:cdr: Redefining name 'codigo' from outer scope (line 18)
+C:150,0:cdr: Missing docstring
+E:157,20:cdr: Undefined variable 'Proyecto'
+C:163,12:cdr: Comma not followed by a space
+            return render_to_response('estadoCDR.html',{'datos':datos},context_instance = RequestContext(request))
+                                                      ^^
+C:174,12:cdr: Invalid name "p" (should match [a-z_][a-z0-9_]{2,30}$)
+C:185,4:cdr: Comma not followed by a space
+    return render_to_response('estadoCDR.html',{'datos':datos},context_instance = RequestContext(request))
+                                              ^^
+W:155,12:cdr: Unused variable 'tipo'
+W:156,12:cdr: Unused variable 'codigo'
+C:187,0:Consultacdr: Invalid name "Consultacdr" (should match [a-z_][a-z0-9_]{2,30}$)
+C:187,0:Consultacdr: Missing docstring
+E:188,12:Consultacdr: Undefined variable 'Becario'
+C:189,12:Consultacdr: Comma not followed by a space
+            return render_to_response('registros.html',context_instance = RequestContext(request))
+                                                      ^^
+C:191,0:inicio: Missing docstring
+W:  6,0: Unused import csrf
+W: 12,0: Unused import random
+W: 13,0: Unused import logout
+W: 13,0: Unused import login
+W:  1,0: Unused import reverse
+W: 13,0: Unused import authenticate
+W:  7,0: Unused import render
+W: 11,0: Unused import smtplib
+
+
+Report
+======
+315 statements analysed.
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |0        |=          |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |0.000    |=          |
++-------------------------+------+---------+-----------+
+
+
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |7      |7          |=          |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |19     |19         |=          |0.00        |15.79    |
++---------+-------+-----------+-----------+------------+---------+
+|method   |3      |3          |=          |66.67       |100.00   |
++---------+-------+-----------+-----------+------------+---------+
+|function |5      |5          |=          |0.00        |40.00    |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |118    |118      |=          |
++-----------+-------+---------+-----------+
+|refactor   |4      |4        |=          |
++-----------+-------+---------+-----------+
+|warning    |32     |32       |=          |
++-----------+-------+---------+-----------+
+|error      |32     |32       |=          |
++-----------+-------+---------+-----------+
+
+
+
+% errors / warnings by module
+-----------------------------
+
++-------+------+--------+---------+-----------+
+|module |error |warning |refactor |convention |
++=======+======+========+=========+===========+
+|admin  |50.00 |0.00    |50.00    |4.24       |
++-------+------+--------+---------+-----------+
+|views  |46.88 |56.25   |25.00    |69.49      |
++-------+------+--------+---------+-----------+
+|tests  |3.12  |43.75   |25.00    |5.93       |
++-------+------+--------+---------+-----------+
+
+
+
+Messages
+--------
+
++-----------+------------+
+|message id |occurrences |
++===========+============+
+|C0324      |42          |
++-----------+------------+
+|C0111      |32          |
++-----------+------------+
+|C0301      |29          |
++-----------+------------+
+|E0602      |27          |
++-----------+------------+
+|C0103      |15          |
++-----------+------------+
+|W0312      |11          |
++-----------+------------+
+|W0611      |10          |
++-----------+------------+
+|F0401      |5           |
++-----------+------------+
+|E1103      |5           |
++-----------+------------+
+|W0621      |3           |
++-----------+------------+
+|W0311      |3           |
++-----------+------------+
+|R0904      |3           |
++-----------+------------+
+|F0001      |3           |
++-----------+------------+
+|W0612      |2           |
++-----------+------------+
+|W0603      |2           |
++-----------+------------+
+|W0104      |1           |
++-----------+------------+
+|R0915      |1           |
++-----------+------------+
+
+
+
+Global evaluation
+-----------------
+Your code has been rated at 0.03/10 (previous run: 0.03/10)
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |325    |73.20 |325      |=          |
++----------+-------+------+---------+-----------+
+|docstring |0      |0.00  |0        |=          |
++----------+-------+------+---------+-----------+
+|comment   |65     |14.64 |65       |=          |
++----------+-------+------+---------+-----------+
+|empty     |54     |12.16 |54       |=          |
++----------+-------+------+---------+-----------+
+
+
+
+External dependencies
+---------------------
+::
+
+    django 
+      \-conf 
+      | \-urls 
+      |   \-include (urls)
+      |   \-patterns (urls)
+      |   \-url (urls)
+      \-contrib 
+      | \-admin (admin,urls)
+      | \-auth 
+      |   \-authenticate (views)
+      |   \-login (views)
+      |   \-logout (views)
+      \-core 
+      | \-context_processors 
+      | | \-csrf (views)
+      | \-mail 
+      | | \-EmailMessage (views)
+      | | \-send_mail (views)
+      | \-urlresolvers 
+      |   \-reverse (tests,views)
+      \-db 
+      | \-models (models)
+      \-http 
+      | \-HttpResponse (views)
+      | \-HttpResponseRedirect (views)
+      \-shortcuts 
+      | \-render (views)
+      | \-render_to_response (views)
+      \-template 
+      | \-RequestContext (views)
+      \-test 
+        \-TestCase (tests)
+    selenium 
+      \-webdriver (tests)
+        \-support 
+          \-ui 
+            \-Select (tests)
+
+
+

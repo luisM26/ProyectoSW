@@ -1,0 +1,1 @@
+Search.setIndex({envversion:46,terms:{content:[],index:1,modul:[],search:1,page:1},objtypes:{},objnames:{},filenames:["colciencias","index"],titles:["colciencias package","Welcome to Colciencias&#8217;s documentation!"],objects:{},titleterms:{welcom:1,admin:0,colciencia:[0,1],submodul:0,indic:1,content:0,packag:0,url:0,tabl:1,test:0,proyecto:0,model:0,document:1,modul:0,view:0}})

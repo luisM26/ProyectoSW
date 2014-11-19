@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+	<title>Verificar Transferencias</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{STATIC_URL}}css/logo-nav.css" rel="stylesheet">
+
+    <style type="text/css">
+    table {
+       width: 100%;
+       border: 1px solid #000;
+    }
+    th, td {
+       width: 25%;
+       text-align: left;
+       vertical-align: top;
+       border: 1px solid #000;
+       border-collapse: collapse;
+       padding: 0.3em;
+       caption-side: bottom;
+    }
+    caption {
+       padding: 0.3em;
+       color: #fff;
+       background: #000;
+    }
+    th {
+       background: #eee;
+    }
+    </style>
+
+</head>
+<body>
+      <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">
+                    <img src="{{STATIC_URL}}img/logo.png" alt="logo"  width="180" height="50">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                     <li>
+                        <a href="#">Inicio</a>
+                    </li>
+                     <li>
+                        <a href="http://127.0.0.1:8000/estado/">Estado cuenta</a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/CDR/">CDR</a>
+                    </li>
+                     <li>
+                        <a href="http://127.0.0.1:8000/verificarTransferencias/">Verificar transferencias</a>
+                    </li>
+                    <li>
+                        <a href="#">Otros</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+               
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="{{STATIC_URL}}js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+	<div><form id='datos' action='' method='POST'>
+                {% csrf_token %}
+                {{form.as_p}}
+               <center> <b> <label>Ingrese el codigo del convenio:</label></b>
+                <input type="text" size="15" maxlength="30" name="codigo" id="id_codigo">
+                <input type= submit value="Consultar" name='boton' id="id_consultar">
+                </center>
+            </form>
+
+        {% if pagos %}
+        <div align="center">
+                <h2 style="text-align:center">Programación de Pagos</h2>
+        </div>
+        
+          <table align="center" style="width:700px">
+            <thead>
+                <tr>
+                   <DIV><br>
+                    <th>Fecha transferencia</th>
+                    <th>Valor</th>
+                    <th>Autorizacion</th>
+                    <th>Entidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pago in pagos %}
+                <tr>
+                    <td>{{ pago.fecha|date:"Y" }}:{{ pago.fecha|date:"m" }}:{{ pago.fecha|date:"j" }}</td>
+                    <td>$ {{ pago.valorTransferencia }}</td>
+                    <td>{{ pago.autoridad }}</td>
+                    <td>{{ pago.entidad }}</td>
+                </tr>
+                {% endfor %}
+                </DIV>
+            </tbody>
+        </table>
+        {% endif %}
+        
+        {% if siif %}        
+        <div align="center">
+                <h2 style="text-align:center">Transferencias realizadas SIIF</h2>
+        </div>
+          <table align="center" style="width:700px">
+            <thead>
+                <tr>
+                   <DIV><br>
+                    <th>Fecha transferencia</th>
+                    <th>Valor</th>
+                    <th>Autorizacion</th>
+                    <th>Entidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sif in siif%}
+                <tr>
+                    <td>{{ sif.fecha|date:"Y" }}:{{ sif.fecha|date:"m" }}:{{ sif.fecha|date:"j" }}</td>
+                    <td>$ {{ sif.valorTransferencia }}</td>
+                    <td>{{ sif.autoridad }}</td>
+                    <td>{{ sif.entidad }}</td>
+                </tr>
+                {% endfor %}
+                </DIV>
+            </tbody>
+        </table>
+        {% endif %}
+</body>
+</html>

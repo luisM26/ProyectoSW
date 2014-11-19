@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Actualizar datos</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{STATIC_URL}}css/logo-nav.css" rel="stylesheet">
+
+</head>
+<body>
+      <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">
+                    <img src="{{STATIC_URL}}img/logo.png" alt="logo"  width="180" height="50">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                     <li>
+                        <a href="#">Inicio</a>
+                    </li>
+                     <li>
+                        <a href="http://127.0.0.1:8000/estado/">Estado cuenta</a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/CDR/">CDR</a>
+                    </li>
+                     <li>
+                        <a href="http://127.0.0.1:8000/verificarTransferencias/">Verificar transferencias</a>
+                    </li>
+                    <li>
+                        <a href="#">Otros</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+               
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="{{STATIC_URL}}js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+    
+        <h3>Estado del convenio: Registro</h3>
+    
+    <center>
+    <div><form id='datos' action='' method='POST'>
+                {% csrf_token %}
+                {{form.as_p}}
+                 <table style="width:500px;height:350px">
+                    <tr>
+                        <td>
+                            <label><b>Número del convenio: </b></label>
+                        </td>
+                        <td>
+                            <input type="text" size="15" maxlength="30" name="numCon" id="id_numCon" style="width:300px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Objeto del convenio: </b>
+                        </td>
+                        <td>
+                            <input type="text" size="15" maxlength="30" name="objeto" id="id_objeto" style="width:300px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Valor del convenio: </b>
+                        </td>
+                        <td>
+                            <input type="text" size="15" maxlength="30" name="valor" id="id_valor" style="width:300px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Fecha de suscripción: </b>
+                        </td>
+                        <td>
+                            <input type="date" name="fechaSus" style="width:300px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Fecha de legalización: </b>
+                        </td>
+                        <td>
+                            <input type="date" name="fechaLeg" style="width:300px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Fecha de inicio: </b>
+                        </td>
+                        <td>
+                            <input type="date" name="fechaIni" style="width:300px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Fecha de finalización: </b>
+                        </td>
+                        <td>    
+                            <input type="date" name="fechaFin" style="width:300px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Plazo: </b>
+                        </td>
+                        <td>
+                           <input type="text" size="15" maxlength="30" name="plazo" id="id_plazo" style="width:300px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Área responsable: </b>
+                        </td>
+                        <td>    
+                            <input type="text" size="15" maxlength="30" name="area" id="id_area" style="width:300px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Supervisor: </b>
+                        </td>
+                        <td>
+                            <input type="text" size="15" maxlength="30" name="supervisor" id="id_supervisor" style="width:300px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>PDF convenio de aportes: </b>
+                        </td>
+                        <td>
+                            <input type="file" name="file" id="id_file" />
+                        </td>
+                    </tr>
+                           
+                </table>
+
+    </div>
+    </center>
+    <div align="right">
+    <input type= submit value="Registrar" name='boton' id="id_registrar">
+</div>
+<footer style="text-align:right">
+        <center><h3><b>Sistema Integrado Colciencias - 2014</center></h3>
+        </footer>
+</body>
+</html>

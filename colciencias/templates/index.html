@@ -1,0 +1,234 @@
+
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Colciencias</title>
+<!-- Bootstrap -->
+<link href="{{STATIC_URL}}index/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="{{STATIC_URL}}index/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ <!--[if lt IE 9]>
+     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link href='http://fonts.googleapis.com/css?family=Kreon:300,400,700' rel='stylesheet' type='text/css'>
+<link href="{{STATIC_URL}}index/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- start plugins -->
+<script type="text/javascript" src="{{STATIC_URL}}index/js/jquery.min.js"></script>
+	<script>
+		$(function() {
+			var pull 		= $('#pull');
+				menu 		= $('nav ul');
+				menuHeight	= menu.height();
+			$(pull).on('click', function(e) {
+				e.preventDefault();
+				menu.slideToggle();
+			});
+			$(window).resize(function(){
+        		var w = $(window).width();
+        		if(w > 320 && menu.is(':hidden')) {
+        			menu.removeAttr('style');
+        		}
+    		});
+		});
+	</script>
+	<style>
+ul#menu {
+ background: #333;
+ width: 1223px;
+ float:left;
+ padding: 5px;
+}
+   
+ul#menu li {
+ color: #fff;
+ float: left;
+ list-style: none;
+ margin: 0% 5%;
+}
+   
+ul#menu li:hover{
+ color: #aaa073;
+ cursor:pointer;
+}
+   
+ul#menu ul {
+ display: none;
+ position: absolute;
+ top: 49px;
+ background: #333;
+ color: #fff;
+ padding: 5px 0px 5px 5px;
+ margin: 0;
+ }
+   
+ul#menu ul li{
+ cursor:wait;
+ float: left;
+ color: #fff;
+ width:30%;
+ margin:0% 0%;
+}
+  
+  
+ul#menu ul li a{
+ color: #fff;
+  width:100%;
+ margin: 0% 0%;
+  cursor:wait;
+}
+   
+ul#menu ul li a:hover{
+ color: #aaa073;
+  width:80%;
+ margin:0% 0%;
+ cursor:pointer;
+}
+   
+ul#menu li:hover ul ul,ul#menu li:hover ul ul ul,ul#menu li.iehover ul ul,ul#menu li.iehover ul ul ul {
+ display: none;
+ cursor:pointer;
+}
+   
+ul#menu li:hover ul,ul#menu ul li:hover ul,ul#menu ul ul li:hover ul,ul#menu li.iehover ul,ul#menu ul li.iehover ul,ul#menu ul ul li.iehover ul {
+ display: block;
+ cursor:pointer;
+}
+</style>
+
+<div class="container">
+	<div class="row header text-center specials">
+		<div class="h_logo">
+			<a href="index.html"><img src="{{STATIC_URL}}index/images/logo1.png" alt="" class="responsive"/></a>
+		</div>
+		<nav class="top-nav">
+			<ul class="top-nav nav_list">
+				<li><a href="/CDR/">Expedir CDR</a></li>
+				<li class="page-scroll"><a href="/cargar">Cargar CDR</a></li>
+				<li class="logo page-scroll"><a title="hexa" href="index.html"><img src="{{STATIC_URL}}index/images/logo1.png" alt="" class="responsive"/></a></li>
+			    <li class="page-scroll"><a href="blog.html">Transferencias</a></li>
+				<li class="page-scroll"><a href="#contact">CDRs</a></li>
+				<ul id="menu">
+				 <li>Contratos y Convenios
+				 <ul>
+				    <li><a href="/CDR/">Solicitar CDR</a></li>
+				    <li><a href="/cargar/">Cargar Anexo</a></li>
+				     <li><a href="/expedir/">Expedir CDR</a></li>
+				 </ul>
+				 </li>
+				 <li>Gestión de convenios
+				  <ul>
+				 	 <li><a href="/estado/">Consultar Convenio</a></li>
+				 	 <li><a href="/verificarTransferencias/">Consultar Convenio</a></li>
+				 	  <li><a href="/crearConvenio/">Creacion de novedad</a></li>
+				 	  <li><a href="/actualizarDatos/">Autorizacion de novedad</a></li>
+				 </ul>
+				 </li>
+				 <li>PESTAÑA 3</li>
+				 <li>PESTAÑA 4
+				  <ul>
+				    <li>SUBMENÚ 1</li>
+				    <li>SUBMENÚ 2</li>
+				  </ul>
+				 </li>
+				 <li>PESTAÑA 5</li>
+				 <li>PESTAÑA 6</li>
+				 
+				</ul>
+			<a href="#" id="pull"><img src="images/nav-icon.png" title="menu" /></a>
+		</nav>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="slider_bg"><!-- start slider -->
+<div class="container">
+		<div class="row slider">
+		<div class="wmuSlider example1"><!-- start wmuSlider example1 -->
+			   <div class="wmuSliderWrapper">
+				   <article style="position: absolute; width: 100%; opacity: 0;"> 
+				  	 	<div class="slider_img text-center">
+				   			<ul class="list-unstyled list_imgs">
+				   				<li><img src="{{STATIC_URL}}index/images/slider3.jpg" alt="" class="responsive"/></li>
+				   			</ul>
+			           	</div>
+				   </article>
+				   <article style="position: relative; width: 100%; opacity: 1;"> 
+				  	 	<div class="slider_img text-center">
+				   			<ul class="list-unstyled list_imgs">
+				   				<li><img src="{{STATIC_URL}}index/images/slider4.jpg" alt="" class="responsive"/></li>
+				   			</ul>
+			           	</div>
+				   </article>
+				 </div>
+                <ul class="wmuSliderPagination">
+                	<li><a href="#" class="">0</a></li>
+                	<li><a href="#" class="">1</a></li>
+                </ul>
+			<script src="{{STATIC_URL}}index/js/jquery.wmuSlider.js"></script> 
+		     <script>
+				 $('.example1').wmuSlider();         
+			</script>
+        </div><!-- end wmuSlider example1 -->
+        <div class="clearfix"></div>
+      </div>
+</div>
+</div>
+<div class="main_bg"  id="about"><!-- start about us -->
+<div class="container">
+	<div class="row about">
+		<div class="col-md-3 about_img">
+			<img src="{{STATIC_URL}}index/images/user6.png" alt="" class="responsive"/>
+		</div>
+		<div class="col-md-9 about_text">
+			<h3>Colciencias</h3>
+			<h4>Modulo  Seguimiento</h4>
+			<p>Colciencias es .........................................................</p>
+			<div class="soc_icons navbar-right">
+				<ul class="list-unstyled text-center">
+					<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+					<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+					<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+					<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+				</ul>	
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="footer_bg" id="contact"><!-- start footer -->
+<div class="container">
+	<div class="row footer">
+
+		
+		<script type="text/javascript">
+				$(function() {
+				  $('a[href*=#]:not([href=#])').click(function() {
+				    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			
+				      var target = $(this.hash);
+				      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+				      if (target.length) {
+				        $('html,body').animate({
+				          scrollTop: target.offset().top
+				        }, 1000);
+				        return false;
+				      }
+				    }
+				  });
+				});
+		</script>
+		<!---- start-smoth-scrolling---->		
+	</div>
+</div>
+</body>
+</html>

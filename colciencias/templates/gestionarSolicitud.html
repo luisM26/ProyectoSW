@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Crear Convenio</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{STATIC_URL}}css/logo-nav.css" rel="stylesheet">
+
+
+
+
+</head>
+<body>
+      <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">
+                    <img src="{{STATIC_URL}}img/logo.png" alt="logo"  width="180" height="50">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                     <li>
+                        <a href="#">Inicio</a>
+                    </li>
+                     <li>
+                        <a href="http://127.0.0.1:8000/estado/">Estado cuenta</a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/CDR/">CDR</a>
+                    </li>
+                     <li>
+                        <a href="http://127.0.0.1:8000/verificarTransferencias/">Verificar transferencias</a>
+                    </li>
+                    <li>
+                        <a href="#">Otros</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+               
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="{{STATIC_URL}}js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+    
+        <h3>Estado del convenio: En solicitud</h3>
+    
+    <center>
+    <div><form id='datos' action='' method='POST'>
+                {% csrf_token %}
+                {{form.as_p}}
+                 <table style="width:600px;height:350px">
+                    <tr>
+                        <td>
+                            <label><b>Seleccione fuente de recursos: </b></label>
+                        </td>
+                        <td>
+                            <select name="tipo" id="id_seleccionar">
+                                <option selected="selected" value="0">Seleccione recurso......</option>
+                                <option value="colciencias" id="id_colciencias" name="colciencias">Recursos Colciencias
+                                </option>
+                                <option value="colciencias-sena" id="id-colsena" name="colciencias-sena">Recursos Colciencias - SENA</option>
+                                <option value="propios" id="id_propios" name="propios">Recursos Propios de Otras Entidades
+                                </option>
+                                <option value="otras" id="id_otras" name="otras">Recursos Nación de Otras Entidades</option>
+                                <option value="regalias" id="id_regalias" name="regalias">Recursos Regalías
+                                </option>
+                                <option value="bm" id="id_bm" name="bm">Recursos Colciencias -BM
+                                </option>
+                                <option value="bid" id="id_bid" name="bid">Recursos Colciencias –BID
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Ingrese el numero de solicitud: </b>
+                        </td>
+                        <td>
+                            <input type="text" size="15" maxlength="30" name="num" id="id_num" style="width:263px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Fecha: </b>
+                        </td>
+                        <td>
+                            <b><script type="text/javascript">
+                            var d = new Date();
+                            document.write(d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear());
+                            </script>
+                            </b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Archivo PDF: </b>
+                        </td>
+                        <td>
+                            <input type="file" name="file" id="id_file" />
+                        </td>
+                    <tr>
+                        <td>
+                            <b>Ingrese numero de organizaciones a asignar: </b>
+                        </td>
+                        <td>
+                            <input type="text" size="15" maxlength="30" name="org" id="id_org" style="width:100px">
+                            <input type= submit value="Aceptar" name='boton' id="id_aceptar">
+                        </td>
+                    </tr>
+                    {% for dato in datos %}
+                    <tr>
+                        <td>
+                            Organización {{dato}}: 
+                        </td>
+                        <td>
+                            <input type="text" size="15" maxlength="30" name="numrp" id="id_numrp" style="width:263px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Valor:  
+                        </td>
+                        <td>
+                            <input type="text" size="15" maxlength="30" name="numrp" id="id_numrp" style="width:263px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Fecha:  
+                        </td>
+                        <td>
+                            <input type="date" name="fecha" style="width:263px">
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Número del proyecto de inversión: </b>
+                        </td>
+                        <td>
+                            <input type="text" size="15" maxlength="30" name="numInv" id="id_numrp" style="width:263px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Año de vigencia de los recursos: </b>
+                        </td>
+                        <td>
+                            <input type="text" size="15" maxlength="30" name="anio" id="id_numrp" style="width:263px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Número RP: </b>
+                        </td>
+                        <td>    
+                            <input type="text" size="15" maxlength="30" name="numrp" id="id_numrp" style="width:263px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Fecha  RP: </b>
+                        </td>
+                        <td>
+                           <input type="date" name="fechaRp" style="width:263px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Valor toral del convenio: </b>
+                        </td>
+                        <td>    
+                            <input type="text" size="15" maxlength="30" name="total" id="id_total" style="width:263px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Valor discriminador por organización: </b>
+                        </td>
+                        <td>
+                            <input type="text" size="15" maxlength="30" name="discri" id="id_discri" style="width:263px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                        </td>
+                        <td>
+                            <input type= submit value="Registrar" name='boton' id="id_registrar">
+                        </td>
+                    </tr>
+                 </table>
+
+    </div>
+    </center>
+    <center>
+        <h3>Programación de giros</h3>
+        <table style="width:550px;height:270px">
+            <tr>
+                <td>
+                    <b>Valor: </b>
+                </td>
+                <td>
+                    <input type="text" size="15" maxlength="30" name="valor" id="id_valor" style="width:263px">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Número de orden: </b>
+                </td>
+                <td>
+                    <input type="text" size="15" maxlength="30" name="numOr" id="id_numOr" style="width:263px">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Fecha: </b>
+                </td>
+                <td>
+                    <input type="date" name="fechaGir" style="width:263px">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Número de solicitud: </b>
+                </td>
+                <td>
+                    <input type="text" size="15" maxlength="30" name="numSol" id="id_numSol" style="width:263px">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="ffjc" id="id_ffjc">
+                                <option selected="selected" value="0">No involucra aportes</option>
+                                <option value="colciencias" id="id_colciencias" name="colciencias">Involucra aportes del FFJC</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                     
+                </td>
+                <td>
+                    Diligenciar en caso de contar con aportes del FFJC
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Fecha recepción giro: </b>
+                </td>
+                <td>
+                    <input type="date" name="fechaffjc" style="width:263px">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Valor recibido: </b>
+                </td>
+                <td>
+                    <input type="text" size="15" maxlength="30" name="valorRec" id="id_valorRec" style="width:263px">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>PDF soporte: </b>
+                </td>
+                <td>
+                    <input type="file" name="filePdf" id="id_file" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+                    <input type= submit value="Guardar" name='boton' id="id_registrarDos">
+                </td>
+            </tr>
+        </table>
+    </center>
+    <footer style="text-align:right">
+        <center><h3><b>Sistema Integrado Colciencias - 2014</center></h3>
+        </footer>
+
+</body>
+</html>
