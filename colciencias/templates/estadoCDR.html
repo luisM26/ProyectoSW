@@ -19,7 +19,8 @@
     <link href="{{STATIC_URL}}css/logo-nav.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- WARNING: Re
+    spond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -40,21 +41,25 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                    <img src="http://www.ucaldas.edu.co/portal/wp-content/uploads/2014/06/logo_colciencias.jpg /150x50&text=Colciencias" alt="">
+                     <img src="http://www.turisco.com.co/images/logos_footer/logo-Colciencias.png" alt="logo">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
+                     <li>
                         <a href="#">Inicio</a>
                     </li>
                     <li>
-                        <a href="#">CDR</a>
+                        <a href="http://127.0.0.1:8000/estado/">Estado cuenta</a>
                     </li>
                     <li>
-                        <a href="#">Otros</a>
+                        <a href="http://127.0.0.1:8000/CDR/">CDR</a>
                     </li>
+                     <li>
+                        <a href="http://127.0.0.1:8000/verificarTransferencias/">Verificar transferencias</a>
+                    </li>
+                    <li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -80,7 +85,7 @@
     <div><form id='datos' action='' method='GET'>
                <!--  {% csrf_token %}
                 {{form.as_p}} -->
-               <center> <b> <label>Seleccione el Proyecto:</label></b>
+               <center> <b> <label>Buscar Convocatoria:</label></b>
                
 
                  <input type="text" size="15" maxlength="30" name="ID">
@@ -104,7 +109,7 @@
                 </tr>
                 <tr>
                     <td>Vigencia:  {{ dato.duracion }}</td>
-                    <td>Fecha convenio: {{dato.convenio_FK.fechaFInalizacion|date:"Y" }}</td>
+                    <td>Convenio de aportes: {{dato.convenio_FK.fechaFInalizacion|date:"Y" }}</td>
                 </tr>
                 <tr>
                     <td>Número convocatoria: {{dato.convenio_FK.numConvenio}}</td>
@@ -114,8 +119,11 @@
                 </tr>
                 </DIV>
             </tbody>
-        </table>    
+        </table>
+
+           
          </center>
+
                 <div>
                     <div>
                     <center>
@@ -131,15 +139,17 @@
                      <label> ID Convenio:</label>
                     <input type="text" size="15" maxlength="30" name="FK_Convenio" >
                 -->
-                    <input type= submit value="agregar CDR" name='boton'>
-                    </td> 
+    <input type= submit value="Registrar" name='boton'>
+    
+ 
+        </td> 
             
                 
                 </div>
       <DIV ALIGN=right>  <form id='pdf' action='' method='GET'>
             <!--  {% csrf_token %}
             {{form.as_p}} -->
-            <input type= submit value="Generar PDF" name='boton'> </DIV>
+            <input type= submit value="Imprimir" name='boton'> </DIV>
         </form>
 </div>
         <footer style="text-align:right">
@@ -147,9 +157,9 @@
         </footer>
         {% endfor %}
         {% else %}
-            <script type="text/javascript">
-            alert('El proyecto no existe ');
-            </script>
+           <!--<script type="text/javascript">
+            #alert('El proyecto no existe ');
+            </script> -->
         {% endif %}
         </form>
   <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>

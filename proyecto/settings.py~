@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_jenkins',
     'colciencias',
 )
 
@@ -53,6 +54,17 @@ ROOT_URLCONF = 'proyecto.urls'
 
 WSGI_APPLICATION = 'proyecto.wsgi.application'
 
+#jenkins
+########################################################
+PROJECT_APPS = ['colciencias']
+
+JENKINS_TASKS = (
+    'django_jenkins.tasks.run_pep8',
+    'django_jenkins.tasks.run_jshint',
+)
+
+PEP8_RCFILE = 'project/pep8.rc'
+#########################################################
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -86,3 +98,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'infocolciencia@gmail.com'
+EMAIL_HOST_PASSWORD = 'colciencias'
+EMAIL_PORT = 587

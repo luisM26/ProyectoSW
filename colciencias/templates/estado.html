@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Estado Cuentas</title>
+    <title>Estado Cuenta</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet">
@@ -17,14 +17,7 @@
     <!-- Custom CSS -->
     <link href="{{STATIC_URL}}css/logo-nav.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
+   </head>
 
 <body>
 
@@ -39,7 +32,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                    <img src="http://placehold.it/150x50&text=Logo" alt="">
+                    <img src="{{STATIC_URL}}img/logo.png" alt="logo"  width="180" height="50">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -48,8 +41,14 @@
                     <li>
                         <a href="#">Inicio</a>
                     </li>
+                     <li>
+                        <a href="http://127.0.0.1:8000/estado/">Estado cuenta</a>
+                    </li>
                     <li>
-                        <a href="#">CDR</a>
+                        <a href="http://127.0.0.1:8000/CDR/">CDR</a>
+                    </li>
+                     <li>
+                        <a href="http://127.0.0.1:8000/verificarTransferencias/">Verificar transferencias</a>
                     </li>
                     <li>
                         <a href="#">Otros</a>
@@ -80,16 +79,17 @@
                 {% csrf_token %}
                 {{form.as_p}}
                <center> <b> <label>Seleccione tipo de convenio:</label></b>
-               <select name="tipo">
+               <select name="tipo" id="id_seleccionar">
                         <option selected="selected" value="0">Seleccione tipo</option>
-                        <option value="aporte">Aporte</option>
-                        <option value="derivado">Derivado</option>
+                        <option value="aporte" id="id_aporte" name="aporte">Aporte</option>
+                        <option value="derivado" id="id_derivado" name="derivado">Derivado</option>
                  </select>
 
-                 <input type="text" size="15" maxlength="30" name="codigo">
-                 <input type= submit value="Consultar" name='boton'>
+                 <input type="text" size="15" maxlength="30" name="codigo" id="id_codigo">
+                 <input type= submit value="Consultar" name='boton' id="id_consultar">
                 </center>
-        {% if datos %}
+    </div>
+        <!-- {% if datos %} -->
         {% if datos.transferidoColciencias = 0 %}
         <div align="center">
                 <h2 style="text-align:center">Estado cuenta</h2>
@@ -99,8 +99,8 @@
             <thead>
                 <tr>
                     
-                   <DIV><br> <th><strong>Fecha inicio: {{ convenios.fechaInicio|date:"Y" }}:{{ convenios.fechaInicio|date:"m" }}:{{ convenios.fechaInicio|date:"j" }}</th>
-                    <th><strong>Fecha fin: {{ convenios.fechaFInalizacion|date:"Y" }}:{{ convenios.fechaFInalizacion|date:"m" }}:{{ convenios.fechaFInalizacion|date:"j" }}<th>
+                    <th><strong>Fecha inicio: {{ convenios.fechaInicio|date:"Y" }}:{{ convenios.fechaInicio|date:"m" }}:{{ convenios.fechaInicio|date:"j" }}</strong></th>
+                    <th><strong>Fecha fin: {{ convenios.fechaFInalizacion|date:"Y" }}:{{ convenios.fechaFInalizacion|date:"m" }}:{{ convenios.fechaFInalizacion|date:"j" }}</strong><th>
                     
                 </tr>
             </thead>
@@ -150,7 +150,7 @@
         <table align="center" style="width:1000px">
             <thead>
                 <tr>                    
-                   <DIV><br> <th><strong>Fecha inicio: {{ convenios.fechaInicio|date:"Y" }}:{{ convenios.fechaInicio|date:"m" }}:{{ convenios.fechaInicio|date:"j" }}</th>
+                   <DIV><br> <th><strong>Fecha inicio: {{ convenios.fechaInicio|date:"Y" }}:{{ convenios.fechaInicio|date:"m" }}:{{ convenios.fechaInicio|date:"j" }}</strong></th>
                     <th><strong>Fecha fin: {{ convenios.fechaFInalizacion|date:"Y" }}:{{ convenios.fechaFInalizacion|date:"m" }}:{{ convenios.fechaFInalizacion|date:"j" }}<th>
                 </tr>
             </thead>
@@ -191,21 +191,21 @@
         </table>
     </center>
         
-      <DIV ALIGN=right>  <form id='pdf' action='' method='GET'>
-            <!--  {% csrf_token %}
+      <DIV ALIGN=right>  <form id='pdf' action='' method='POST'>
+             <!-- {% csrf_token %}
             {{form.as_p}} -->
-            <input type= submit value="Generar PDF" name='boton'> </DIV>
+            <input type= submit value="Generar PDF" name='boton' id='pdf'> </DIV>
         </form>
 </div>
         <footer style="text-align:right">
         <center><h3><b>Sistema Integrado Colciencias - 2014</center></h3>
         </footer>
         {% endif %}
-         {% else %}
+         <!-- {% else %}
             <script type="text/javascript">
             alert('El convenio no existe');
             </script>
-        {% endif %}
+        {% endif %} -->
         </form>
 </body>
 

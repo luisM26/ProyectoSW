@@ -1,7 +1,6 @@
 from django.contrib import admin
 from colciencias.models import *
 
-
 class OrganizacionAdmin (admin.ModelAdmin):
     list_display = ('ID', 'nombre', 'NIT')
     search_fields = ('nombre',) 
@@ -31,4 +30,8 @@ admin.site.register(Notificacion_Convenio)
 admin.site.register(Estado)
 admin.site.register(TransferenciasSiif)
 admin.site.register(ProgramacionPago)
-	
+admin.site.register(Proforma)
+admin.site.register(CDR)
+admin.site.register(Giro)
+admin.site.register(Ffjc)
+admin.site.register(ConvenioSol)

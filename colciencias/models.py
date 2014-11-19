@@ -1,6 +1,4 @@
 from django.db import models
-from django.contrib import admin
-
 
 class ProyectoInversion(models.Model):
     ID = models.CharField(max_length=20 , primary_key=True)
@@ -10,7 +8,7 @@ class ProyectoInversion(models.Model):
     #def __init__(self):
         #super(proyectoInversion, self).__init__()
         #
-
+#Esta clase
 class TransferenciasSiif(models.Model):
     ID = models.CharField(max_length=30 , primary_key=True)
     convenio = models.CharField(max_length=30)
@@ -52,11 +50,18 @@ class Convenio(models.Model):
         #super(Convenio, self).__init__()
         #
 
+    def __str__(self):
+        return self.nombre
+
 class Organizacion(models.Model):
     ID = models.CharField(max_length=20 , primary_key=True)
     nombre = models.CharField(max_length=100)
     NIT = models .CharField(max_length=20)
     convenio_FK = models.ForeignKey(Convenio)
+    valor = models.FloatField()
+
+    def __str__(self):
+        return self.nombre
     #def __init__(self):
         #super(organizacion, self).__init__()
         #
@@ -145,6 +150,25 @@ class Anexo(models.Model):
         #super(Anexo, self).__init__()
         #
 
+class Proforma(models.Model):
+    ID = models.CharField(max_length=30 , primary_key=True)
+    fechaCargue = models.DateField()
+    descripcion = models.TextField()
+    archivo = models.FileField()
+    
+    def __str__(self):
+        return self.ID
+
+    #valida = models.BooleanField(default=True)
+class CDR(models.Model):
+    ID = models.CharField(max_length=30 , primary_key=True) 
+    Convenio = models.ForeignKey(Convenio , null=True)
+    Proforma = models.ForeignKey(Proforma , null=True)
+    validado = models.BooleanField(default=True)
+    organizacion = models.ForeignKey(Organizacion, null=True)
+
+    def __str__(self):
+        return self.ID
 
 class Notificacion(models.Model):
     ID = models.CharField(max_length=30 , primary_key=True)
@@ -189,3 +213,49 @@ class Estado(models.Model):
     #def __init__(self):
         #super(estado, self).__init__()
         #
+
+class ConvenioSol(models.Model):
+    numConvenio = models.CharField(max_length=30 , primary_key=True)
+    nombre = models.CharField(max_length=50)
+    tipoConvenio = models.CharField(max_length=30)
+    estado = models.CharField(max_length=30)
+    valorTotal = models.FloatField()
+    RP = models.CharField(max_length=50)
+    fechaInicio = models.DateField(null=True)
+    fechaSuscripcion = models.DateField(null=True)
+    fechaLegalizacion = models.DateField(null=True)
+    fechaFInalizacion = models.DateField(null=True)
+    areaResponsable = models.CharField(max_length=30)
+    supervisor = models.CharField(max_length=100)
+    plazo = models.DateField(null=True)
+    objeto = models.CharField(max_length=100)
+
+class Ffjc(models.Model):
+    ID = models.CharField(max_length=30, primary_key=True)
+    fecha = models.DateField(null=True)
+    valor = models.FloatField()
+    pdf = models.FileField()
+
+class Giro(models.Model):
+    ID = models.CharField(max_length=30,primary_key=True)
+    num = models.CharField(max_length=30)
+    fecha = models.DateField(null=True)
+    numSol = models.CharField(max_length=30)
+    valor = models.FloatField()
+
+class propuesta(models.Model):
+    ID = models.CharField(max_length=20 , primary_key=True)
+    nombre = models.CharField(max_length=100)
+    fecha = models.DateField()
+    desembolso_FK= models.ForeignKey(Desembolso, null=True)
+
+    def __str__(self):
+        return self.nombre
+
+class Convocatoria(models.Model):
+    ID = models.CharField(max_length=20 , primary_key=True)
+    nombre = models.CharField(max_length=100)
+    fecha = models .DateField()
+    convenio_FK = models.ForeignKey(Convenio, null=True)
+    propuesta_FK= models.ForeignKey(propuesta, null=True)
+    validado = models.BooleanField(default=True)
