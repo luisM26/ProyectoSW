@@ -1,8 +1,5 @@
 Babel==1.3
 BeautifulSoup==3.2.1
-Brlapi==0.5.7
-CDApplet==1.0
-CDBashApplet==1.0
 Django==1.8.dev20140824173336
 GnuPGInterface==0.3.2
 Jinja2==2.7.3
